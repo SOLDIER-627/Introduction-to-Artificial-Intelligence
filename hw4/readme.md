@@ -10,10 +10,23 @@
 
 2. **基础环境**：
 ```bash
-conda create -n llm_env python=3.10 -y
-conda activate llm_env
-pip install torch==2.3.0+cpu torchvision==0.18.0+cpu --index-url https://download.pytorch.org/whl/cpu
-pip install transformers==4.33.3 modelscope==1.9.5 pydantic==1.10.13
+# 安装基础依赖（兼容transformers 4.33.3 和neuralchat）
+pip install \
+"intel-extension-for-transformers==1.4.2" \
+"neural-compressor==2.5" \
+"transformers==4.33.3" \
+"modelscope==1.9.5" \
+"pydantic==1.10.13" \
+"sentencepiece" \
+"tiktoken" \
+"einops" \
+"transformers_stream_generator" \
+"uvicorn" \
+"fastapi" \
+"yacs" \
+"setuptools_scm"
+# 安装fschat（需要启用PEP517 构建）
+pip install fschat --use-pep517
 ```
 
 ## 模型下载
